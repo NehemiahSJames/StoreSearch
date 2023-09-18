@@ -24,6 +24,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.becomeFirstResponder()
+        
         tableView.contentInset = UIEdgeInsets(top: 51, left: 0, bottom:
         0, right: 0)
         
