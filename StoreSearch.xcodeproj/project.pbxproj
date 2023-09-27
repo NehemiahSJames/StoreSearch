@@ -17,14 +17,14 @@
 		61ABFD052AB89A5700C6CD59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABFD042AB89A5700C6CD59 /* AppDelegate.swift */; };
 		61ABFD072AB89A5700C6CD59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABFD062AB89A5700C6CD59 /* SceneDelegate.swift */; };
 		61ABFD092AB89A5700C6CD59 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABFD082AB89A5700C6CD59 /* SearchViewController.swift */; };
-		61ABFD0C2AB89A5700C6CD59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61ABFD0A2AB89A5700C6CD59 /* Main.storyboard */; };
 		61ABFD0E2AB89A5800C6CD59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61ABFD0D2AB89A5800C6CD59 /* Assets.xcassets */; };
 		61ABFD192AB8CA8000C6CD59 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABFD182AB8CA8000C6CD59 /* SearchResult.swift */; };
-		61ABFD1B2AB8E6FD00C6CD59 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ABFD1A2AB8E6FD00C6CD59 /* SearchResultCell.xib */; };
 		61ABFD1D2AB8EFEE00C6CD59 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABFD1C2AB8EFEE00C6CD59 /* SearchResultCell.swift */; };
-		61ABFD1F2AB8FF9500C6CD59 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ABFD1E2AB8FF9500C6CD59 /* NothingFoundCell.xib */; };
-		61ABFD212ABA3AEB00C6CD59 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ABFD202ABA3AEB00C6CD59 /* LoadingCell.xib */; };
 		61ABFD232ABB73F100C6CD59 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABFD222ABB73F100C6CD59 /* UIImageView+DownloadImage.swift */; };
+		61C6C7992AC4D77A004DB405 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61C6C79B2AC4D77A004DB405 /* NothingFoundCell.xib */; };
+		61C6C79D2AC4D808004DB405 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61C6C79F2AC4D808004DB405 /* LoadingCell.xib */; };
+		61C6C7A42AC4DCA9004DB405 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61C6C7A62AC4DCA9004DB405 /* SearchResultCell.xib */; };
+		61C6C7A72AC4DDE9004DB405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61ABFD0A2AB89A5700C6CD59 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,11 +43,14 @@
 		61ABFD0D2AB89A5800C6CD59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61ABFD122AB89A5800C6CD59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61ABFD182AB8CA8000C6CD59 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
-		61ABFD1A2AB8E6FD00C6CD59 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		61ABFD1C2AB8EFEE00C6CD59 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		61ABFD1E2AB8FF9500C6CD59 /* NothingFoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
-		61ABFD202ABA3AEB00C6CD59 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		61ABFD222ABB73F100C6CD59 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		61C6C79A2AC4D77A004DB405 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		61C6C79C2AC4D793004DB405 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		61C6C79E2AC4D808004DB405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
+		61C6C7A12AC4D80F004DB405 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
+		61C6C7A32AC4DBB8004DB405 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		61C6C7A52AC4DCA9004DB405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchResultCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +90,10 @@
 				61ABFD0D2AB89A5800C6CD59 /* Assets.xcassets */,
 				61ABFD122AB89A5800C6CD59 /* Info.plist */,
 				61ABFD182AB8CA8000C6CD59 /* SearchResult.swift */,
-				61ABFD1A2AB8E6FD00C6CD59 /* SearchResultCell.xib */,
+				61C6C7A62AC4DCA9004DB405 /* SearchResultCell.xib */,
 				61ABFD1C2AB8EFEE00C6CD59 /* SearchResultCell.swift */,
-				61ABFD1E2AB8FF9500C6CD59 /* NothingFoundCell.xib */,
-				61ABFD202ABA3AEB00C6CD59 /* LoadingCell.xib */,
+				61C6C79B2AC4D77A004DB405 /* NothingFoundCell.xib */,
+				61C6C79F2AC4D808004DB405 /* LoadingCell.xib */,
 				61ABFD222ABB73F100C6CD59 /* UIImageView+DownloadImage.swift */,
 				6187A2AE2AC1EFC50075EC87 /* DetailViewController.swift */,
 				6187A2B02AC3228E0075EC87 /* GradientView.swift */,
@@ -145,6 +148,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = 61ABFCF82AB89A5700C6CD59;
 			productRefGroup = 61ABFD022AB89A5700C6CD59 /* Products */;
@@ -162,10 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				61ABFD0E2AB89A5800C6CD59 /* Assets.xcassets in Resources */,
-				61ABFD212ABA3AEB00C6CD59 /* LoadingCell.xib in Resources */,
-				61ABFD1B2AB8E6FD00C6CD59 /* SearchResultCell.xib in Resources */,
-				61ABFD1F2AB8FF9500C6CD59 /* NothingFoundCell.xib in Resources */,
-				61ABFD0C2AB89A5700C6CD59 /* Main.storyboard in Resources */,
+				61C6C7A72AC4DDE9004DB405 /* Main.storyboard in Resources */,
+				61C6C79D2AC4D808004DB405 /* LoadingCell.xib in Resources */,
+				61C6C7A42AC4DCA9004DB405 /* SearchResultCell.xib in Resources */,
+				61C6C7992AC4D77A004DB405 /* NothingFoundCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +203,35 @@
 			isa = PBXVariantGroup;
 			children = (
 				61ABFD0B2AB89A5700C6CD59 /* Base */,
+				61C6C7A32AC4DBB8004DB405 /* nl */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		61C6C79B2AC4D77A004DB405 /* NothingFoundCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61C6C79A2AC4D77A004DB405 /* en */,
+				61C6C79C2AC4D793004DB405 /* nl */,
+			);
+			name = NothingFoundCell.xib;
+			sourceTree = "<group>";
+		};
+		61C6C79F2AC4D808004DB405 /* LoadingCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61C6C79E2AC4D808004DB405 /* Base */,
+				61C6C7A12AC4D80F004DB405 /* nl */,
+			);
+			name = LoadingCell.xib;
+			sourceTree = "<group>";
+		};
+		61C6C7A62AC4DCA9004DB405 /* SearchResultCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61C6C7A52AC4DCA9004DB405 /* Base */,
+			);
+			name = SearchResultCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -210,6 +241,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -270,6 +302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
