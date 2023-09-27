@@ -16,10 +16,7 @@ class SearchViewController: UIViewController {
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         performSearch()
     }
-    var searchResults = [SearchResult]()
-    var hasSearched = false
-    var isLoading = false
-    var dataTask: URLSessionDataTask?
+    private let search = Search()
     var landscapeVC: LandscapeViewController?
     
     struct TableView {
@@ -52,35 +49,10 @@ class SearchViewController: UIViewController {
     }
 
     // MARK: - Helper Methods
-    func iTunesURL(searchText: String, category: Int) -> URL {
-      let kind: String
-      switch category {
-        case 1: kind = "musicTrack"
-        case 2: kind = "software"
-        case 3: kind = "ebook"
-        default: kind = ""
-      }
-        
-      let encodedText = searchText.addingPercentEncoding(
-          withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-      let urlString = "https://itunes.apple.com/search?" +
-        "term=\(encodedText)&limit=200&entity=\(kind)"
-      let url = URL(string: urlString)
-      return url!
-        
-    }
     
     
-    func parse(data: Data) -> [SearchResult] {
-      do {
-        let decoder = JSONDecoder()
-        let result = try decoder.decode(
-          ResultArray.self, from: data)
-        return result.results
-      } catch {
-        print("JSON Error: \(error)")
-    return [] }
-    }
+    
+    
     
     func showNetworkError() {
       let alert = UIAlertController(
@@ -103,7 +75,7 @@ class SearchViewController: UIViewController {
         withIdentifier: "LandscapeViewController") as?
     LandscapeViewController
       if let controller = landscapeVC {
-          controller.searchResults = searchResults
+          controller.search = search
         // 3
         controller.view.frame = view.bounds
           controller.view.alpha = 0
@@ -157,7 +129,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
       performSearch()
     }
-    
+    /*
     func performSearch() {
       if !searchBar.text!.isEmpty {
         searchBar.resignFirstResponder()
@@ -202,10 +174,21 @@ extension SearchViewController: UISearchBarDelegate {
             dataTask?.resume()
         }
     }
+    */
     
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-      return .topAttached
-    }
+    func performSearch() {
+      search.performSearch(
+        for: searchBar.text!,
+        category: segmentedControl.selectedSegmentIndex) { success
+    in
+          if !success {
+            self.showNetworkError()
+          }
+          self.tableView.reloadData()
+        }
+        tableView.reloadData()
+          searchBar.resignFirstResponder()
+        }
     
 }
 
@@ -216,15 +199,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
       _ tableView: UITableView,
       numberOfRowsInSection section: Int
     ) -> Int {
-      if isLoading {
-        return 1
-      }
-      else if !hasSearched {
-        return 0
-      } else if searchResults.count == 0 {
-        return 1
-      } else {
-        return searchResults.count
+      if search.isLoading {
+        return 1  // Loading...
+      } else if !search.hasSearched {
+        return 0  // Not searched yet
+      } else if search.searchResults.count == 0 {
+        return 1  // Nothing Found
+    } else {
+        return search.searchResults.count
       }
     }
     
@@ -233,7 +215,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
       cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         
-        if isLoading {
+        if search.isLoading {
             let cell = tableView.dequeueReusableCell(
               withIdentifier: TableView.CellIdentifiers.loadingCell,
               for: indexPath)
@@ -242,7 +224,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else
         
-      if searchResults.count == 0 {
+        if search.searchResults.count == 0 {
         return tableView.dequeueReusableCell(
           withIdentifier:
     TableView.CellIdentifiers.nothingFoundCell,
@@ -251,7 +233,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier:
           TableView.CellIdentifiers.searchResultCell,
           for: indexPath) as! SearchResultCell
-        let searchResult = searchResults[indexPath.row]
+          let searchResult = search.searchResults[indexPath.row]
           cell.configure(for: searchResult)
               return cell
           }
@@ -269,7 +251,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
           _ tableView: UITableView,
           willSelectRowAt indexPath: IndexPath
         ) -> IndexPath? {
-          if searchResults.count == 0 || isLoading {
+            if search.searchResults.count == 0 || search.isLoading {
             return nil
           } else {
             return indexPath
@@ -283,7 +265,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
        let detailViewController = segue.destination as!
     DetailViewController
        let indexPath = sender as! IndexPath
-       let searchResult = searchResults[indexPath.row]
+         let searchResult = search.searchResults[indexPath.row]
        detailViewController.searchResult = searchResult
     } }
     
