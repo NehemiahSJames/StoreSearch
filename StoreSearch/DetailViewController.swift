@@ -24,31 +24,38 @@ class DetailViewController: UIViewController {
     }
     
     var dismissStyle = AnimationStyle.fade
-    var searchResult: SearchResult!
+    var searchResult: SearchResult! {
+      didSet {
+        if isViewLoaded {
+           updateUI()
+        }
+      }
+    }
     var downloadTask: URLSessionDownloadTask?
+    var isPopUp = false
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+      super.viewDidLoad()
+      if isPopUp {
         popupView.layer.cornerRadius = 10
-        
         let gestureRecognizer = UITapGestureRecognizer(
           target: self,
           action: #selector(close))
         gestureRecognizer.cancelsTouchesInView = false
         gestureRecognizer.delegate = self
         view.addGestureRecognizer(gestureRecognizer)
-        
-        if searchResult != nil {
-          updateUI()
-        }
-        
         // Gradient view
         view.backgroundColor = UIColor.clear
         let dimmingView = GradientView(frame: CGRect.zero)
         dimmingView.frame = view.bounds
         view.insertSubview(dimmingView, at: 0)
-        
+      } else {
+        view.backgroundColor = UIColor(patternImage: UIImage(
+          named: "LandscapeBackground")!)
+        popupView.isHidden = true
+      }
+      if searchResult != nil {
+    updateUI() }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -97,6 +104,8 @@ class DetailViewController: UIViewController {
         if let largeURL = URL(string: searchResult.imageLarge) {
           downloadTask = artworkImageView.loadImage(url: largeURL)
         }
+        
+        popupView.isHidden = false
         
     }
 

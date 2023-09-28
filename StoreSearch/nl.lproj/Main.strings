@@ -1,4 +1,16 @@
 
+/* Class = "UISegmentedControl"; 3ue-Gn-rdS.segmentTitles[0] = "All"; ObjectID = "3ue-Gn-rdS"; */
+"3ue-Gn-rdS.segmentTitles[0]" = "Alles";
+
+/* Class = "UISegmentedControl"; 3ue-Gn-rdS.segmentTitles[1] = "Music"; ObjectID = "3ue-Gn-rdS"; */
+"3ue-Gn-rdS.segmentTitles[1]" = "Muziek";
+
+/* Class = "UISegmentedControl"; 3ue-Gn-rdS.segmentTitles[2] = "Software"; ObjectID = "3ue-Gn-rdS"; */
+"3ue-Gn-rdS.segmentTitles[2]" = "Software";
+
+/* Class = "UISegmentedControl"; 3ue-Gn-rdS.segmentTitles[3] = "E-Books"; ObjectID = "3ue-Gn-rdS"; */
+"3ue-Gn-rdS.segmentTitles[3]" = "E-boeken";
+
 /* Class = "UILabel"; text = "Kind Value"; ObjectID = "9dB-gU-KgG"; */
 "9dB-gU-KgG.text" = "Kind Value";
 
@@ -23,17 +35,6 @@
 /* Class = "UILabel"; text = "Genre Value"; ObjectID = "oUl-lo-j6Q"; */
 "oUl-lo-j6Q.text" = "Genre Value";
 
-/* Class = "UISegmentedControl"; u6h-8U-NgU.segmentTitles[0] = "All"; ObjectID = "u6h-8U-NgU"; */
-"u6h-8U-NgU.segmentTitles[0]" = "Alles";
-
-/* Class = "UISegmentedControl"; u6h-8U-NgU.segmentTitles[1] = "Music"; ObjectID = "u6h-8U-NgU"; */
-"u6h-8U-NgU.segmentTitles[1]" = "Muziek";
-
-/* Class = "UISegmentedControl"; u6h-8U-NgU.segmentTitles[2] = "Software"; ObjectID = "u6h-8U-NgU"; */
-"u6h-8U-NgU.segmentTitles[2]" = "Software";
-
-/* Class = "UISegmentedControl"; u6h-8U-NgU.segmentTitles[3] = "E-Books"; ObjectID = "u6h-8U-NgU"; */
-"u6h-8U-NgU.segmentTitles[3]" = "E-boeken";
-
 /* Class = "UILabel"; text = "Name"; ObjectID = "u73-BY-zIq"; */
 "u73-BY-zIq.text" = "Name";
+

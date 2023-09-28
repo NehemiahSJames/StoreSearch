@@ -17,6 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        searchVC.splitViewDetail = detailVC
+        splitVC.delegate = self
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,6 +49,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    // MARK: - Properties
+    var splitVC: UISplitViewController {
+      return window!.rootViewController as! UISplitViewController
+    }
+    var searchVC: SearchViewController {
+      let nav = splitVC.viewControllers.first as!
+    UINavigationController
+      return nav.viewControllers.first as! SearchViewController
+    }
+    var detailVC: DetailViewController {
+      let nav = splitVC.viewControllers.last as!
+    UINavigationController
+      return nav.viewControllers.first as! DetailViewController
+    }
+    
 }
 
+extension SceneDelegate: UISplitViewControllerDelegate {
+  func splitViewController(
+    _ svc: UISplitViewController,
+    topColumnForCollapsingToProposedTopColumn proposedTopColumn:
+UISplitViewController.Column
+  ) -> UISplitViewController.Column {
+    if UIDevice.current.userInterfaceIdiom == .phone {
+      return .primary
+    }
+    return proposedTopColumn
+  }
+}
